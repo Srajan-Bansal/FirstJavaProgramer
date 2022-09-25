@@ -9,18 +9,18 @@ public class BubbleSort {
         System.out.println(Arrays.toString(arr));
     }
     static void bubble(int[] arr){
-        boolean swaped;
+        boolean swapped;
         for (int i = 0; i < arr.length; i++) {
-                swaped = false;
+                swapped = false;
             for (int j = 1; j <= arr.length - i - 1; j++) {
                 if(arr[j] < arr[j-1]) {
                     int temp = arr[j];
                     arr[j] = arr[j-1];
                     arr[j-1] = temp;
-                    swaped = true;
+                    swapped = true;
                 }
             }
-            if(!swaped){
+            if(!swapped){
                 break;
             }
         }
