@@ -84,8 +84,8 @@ public class CustomDoublyLinkedList {
 
     }
 
-    private class Node {
-        private int value;
+    private static class Node {
+        private final int value;
         private Node next;
         private Node prev;
 
