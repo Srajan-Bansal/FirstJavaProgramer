@@ -12,10 +12,10 @@ public class Q3_SearchACyclicSortedArray {
         while (start <= end) {
             int mid = start + (end - start) / 2;
 
-            if (mid < arr.length - 1 && arr[mid] > arr[mid + 1]) {
+            if (mid < end && arr[mid] > arr[mid + 1]) {
                 return arr[mid + 1];
             }
-            if (mid > 0 && arr[mid] < arr[mid - 1]) {
+            if (mid > start && arr[mid] < arr[mid - 1]) {
                 return arr[mid];
             }
             if (arr[start] > arr[mid]) {
