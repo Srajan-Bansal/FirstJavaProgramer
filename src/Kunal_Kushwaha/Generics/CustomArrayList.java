@@ -33,8 +33,7 @@ public class CustomArrayList {
     }
 
     public int remove(int num) {
-        int removed = data[--size];
-        return removed;
+        return data[size--];
     }
 
     public int getData(int index) {
@@ -47,7 +46,7 @@ public class CustomArrayList {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("CustomArrayList{");
+        StringBuilder sb = new StringBuilder("CustomArrayList{");
         sb.append("data=");
         if (data == null) sb.append("null");
         else {
