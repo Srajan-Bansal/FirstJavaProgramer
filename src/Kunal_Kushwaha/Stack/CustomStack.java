@@ -26,10 +26,6 @@ public class CustomStack {
         if (isEmpty()) {
             throw new StackException("Cannot pop from an empty Stack!!");
         }
-//        int removed = data[ptr];
-//        ptr--;
-//        return removed;
-
         return data[ptr--];
     }
 
@@ -43,20 +39,35 @@ public class CustomStack {
     public boolean isFull() {
         return ptr == data.length;
     }
-    private boolean isEmpty() {
+    public boolean isEmpty() {
         return ptr == 0;
     }
 
+    public int size() {
+        return ptr;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder s = new StringBuilder("[");
+        if (size() > 0) {
+            for (int i = 0; i < size(); i++) {
+                s.append(", ").append(data[i]);
+            }
+        }
+        return s + "]";
+    }
 
     public static void main(String[] args) throws StackException {
-        CustomStack stack = new CustomStack(2);
+        CustomStack stack = new CustomStack();
 
         stack.push(1);
         stack.push(2);
         stack.push(2);
 
-        System.out.println(stack.pop());
-        System.out.println(stack.pop());
-        System.out.println(stack.pop());
+        System.out.println(stack);
+//        System.out.println(stack.pop());
+//        System.out.println(stack.pop());
+//        System.out.println(stack.pop());
     }
 }
