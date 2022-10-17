@@ -3,9 +3,7 @@ package Kunal_Kushwaha.Stack;
 public class CustomStack {
     protected int[] data;
     private static final int DEFAULT_SIZE = 10;
-
     int ptr = 0;
-
     public CustomStack() {
         this(DEFAULT_SIZE);
     }
