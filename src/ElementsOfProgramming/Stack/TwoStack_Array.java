@@ -25,9 +25,9 @@ public class TwoStack_Array {
     public void push(int stackId, int item) throws Exception {
         if (ptr1 == ptr2 - 1) throw new Exception("Array is Full");
         if (stackId == 1) {
-            data[ptr1++] = item;
+            data[++ptr1] = item;
         } else {
-            data[ptr2--] = item;
+            data[--ptr2] = item;
         }
     }
 
