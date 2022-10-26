@@ -1,4 +1,4 @@
-package ElementsOfProgramming.Stack;
+package ElementsOfProgramming.Stack.Questions;
 
 public class TwoStack_Array {
     protected int[] data;

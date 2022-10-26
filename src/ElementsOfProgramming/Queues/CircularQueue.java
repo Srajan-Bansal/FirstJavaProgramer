@@ -23,13 +23,23 @@ public class CircularQueue {
         return size == -1;
     }
 
-    public void insert(int item) throws QueueException{
+    public void insert(int item){
         if (isFull()) {
-            throw new QueueException("Circular Queue is Full");
+            expand();
         }
         data[++end] = item;
         end = end % data.length;
         size++;
+    }
+
+    public void expand() {
+        int[] temp = new int[2 * data.length];
+        for (int i = 1; i < data.length; i++) {
+            data[i - 1] = data[i];
+        }
+        front = -1;
+        end = data.length - 1;
+        data = temp;
     }
 
     public int remove() {
@@ -41,6 +51,13 @@ public class CircularQueue {
         front = front % data.length;
         size--;
         return removed;
+    }
+
+    public int getFront() {
+        if (isEmpty()) {
+            return -1;
+        }
+        return data[front];
     }
 
     public void display() {

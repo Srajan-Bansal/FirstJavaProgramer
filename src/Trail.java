@@ -1,1 +1,1 @@
-public class Trail {}
+import java.util.Arrays;public class Trail {    public static void main(String[] args) {        int[][] arr = {{5, 1, 9, 11}, {2, 4, 8, 10}, {13, 3, 6, 7}, {15, 14, 12, 16}};        System.out.println();    }    static void rotate(int[] arr) {    }}

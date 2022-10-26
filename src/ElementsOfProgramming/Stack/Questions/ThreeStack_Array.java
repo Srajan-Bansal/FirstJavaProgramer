@@ -1,6 +1,4 @@
-package ElementsOfProgramming.Stack;
-
-import java.util.ArrayList;
+package ElementsOfProgramming.Stack.Questions;
 
 public class ThreeStack_Array {
     protected int[] data;

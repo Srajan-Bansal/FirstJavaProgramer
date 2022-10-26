@@ -1,4 +1,4 @@
-package ElementsOfProgramming.Stack;
+package ElementsOfProgramming.Stack.Questions;
 
 import java.util.Stack;
 
