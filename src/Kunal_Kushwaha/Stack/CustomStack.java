@@ -1,7 +1,9 @@
 package Kunal_Kushwaha.Stack;
 
+import java.util.Arrays;
+
 public class CustomStack {
-    protected int[] data;
+    protected  int[] data;
     private static final int DEFAULT_SIZE = 10;
     int ptr = 0;
     public CustomStack() {
@@ -47,17 +49,14 @@ public class CustomStack {
 
     @Override
     public String toString() {
-        StringBuilder s = new StringBuilder("[");
-        if (size() > 0) {
-            for (int i = 0; i < size(); i++) {
-                s.append(", ").append(data[i]);
-            }
-        }
-        return s + "]";
+        return "CustomStack{" +
+                "data=" + Arrays.toString(data) +
+                ", ptr=" + ptr +
+                '}';
     }
 
     public static void main(String[] args) throws StackException {
-        CustomStack stack = new CustomStack();
+        CustomStack stack = new CustomStack(3);
 
         stack.push(1);
         stack.push(2);

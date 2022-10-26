@@ -1,5 +1,7 @@
 package ElementsOfProgramming.Stack;
 
+import java.util.Arrays;
+
 public class CustomStack {
     protected int[] data;
     private static final int DEFAULT_SIZE = 16;
@@ -16,7 +18,7 @@ public class CustomStack {
     }
 
     public boolean isFull() {
-        return ptr == data.length;
+        return ptr == data.length - 1;
     }
 
     public boolean isEmpty() {
@@ -51,6 +53,14 @@ public class CustomStack {
         return ptr + 1;
     }
 
+    @Override
+    public String toString() {
+        return "CustomStack{" +
+                "data=" + Arrays.toString(data) +
+                ", ptr=" + ptr +
+                '}';
+    }
+
     public static void main(String[] args) {
         CustomStack stack = new CustomStack(4);
         stack.push(1);
@@ -59,5 +69,6 @@ public class CustomStack {
         stack.push(4);
 
         System.out.println(stack.getPtr());
+        System.out.println(stack);
     }
 }

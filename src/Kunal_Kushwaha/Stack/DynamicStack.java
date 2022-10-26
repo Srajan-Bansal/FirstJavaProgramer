@@ -28,4 +28,14 @@ public class DynamicStack extends CustomStack{
         // insert item
         return super.push(item);
     }
+
+    public static void main(String[] args) throws StackException {
+        DynamicStack stack = new DynamicStack(3);
+
+        stack.push(1);
+        stack.push(2);
+        stack.push(2);
+
+        System.out.println(stack);
+    }
 }
