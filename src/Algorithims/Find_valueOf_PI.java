@@ -4,10 +4,10 @@ import java.util.Random;
 
 public class Find_valueOf_PI {
     public static void main(String[] args) {
-        System.out.println(vauleOfPI(1000));
+        System.out.println(valueOfPI(1000));
     }
 
-    static double vauleOfPI(int n) {
+    static double valueOfPI(int n) {
         Random generator = new Random();
 
         int num_point_circle = 0;

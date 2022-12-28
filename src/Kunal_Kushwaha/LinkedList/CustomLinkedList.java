@@ -50,8 +50,7 @@ public class CustomLinkedList {
             temp = temp.next;
         }
 
-        Node node = new Node(val, temp.next);
-        temp.next = node;
+        temp.next = new Node(val, temp.next);
 
         size++;
     }

@@ -2,7 +2,7 @@ package Algorithims;
 
 public class Kadane_Algorithm {
     public static void main(String[] args) {
-        int[] arr = {1, -2,-3, 4, -1, 2, 1};
+        int[] arr = {-1,-2,-3,-4};
 
         int sum = 0;
         int maxSum = Integer.MIN_VALUE;
