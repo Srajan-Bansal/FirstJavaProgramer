@@ -3,25 +3,24 @@ package CN.HashMaps;
 import java.util.ArrayList;
 
 public class Map<K, V> {
-
-    ArrayList<MapNode<K, V>> bucketList;
+    ArrayList<MapNode<K ,V>> bucket;
     int count;
-    int numBucket;
+    int bucketSize;
 
-    public Map(int numBucket) {
-        bucketList = new ArrayList<>();
-        this.numBucket = numBucket;
+    public Map(int bucketSize) {
+        bucket = new ArrayList<>();
         count = 0;
+        this.bucketSize = bucketSize;
     }
 
-    public int getHasCode(K key) {
-        return key.hashCode() % numBucket;
+    public int getHashCode(K key) {
+        return key.hashCode() % bucketSize;
     }
 
     public void insert(K key, V value) {
-        int bucketIndex = getHasCode(key);
+        int index = getHashCode(key);
         MapNode<K, V> head, temp;
-        head = temp = bucketList.get(bucketIndex);
+        head = temp = bucket.get(index);
 
         while (temp != null) {
             if (temp.key.equals(key)) {
@@ -30,40 +29,19 @@ public class Map<K, V> {
             }
             temp = temp.next;
         }
-
         MapNode<K, V> node = new MapNode<>(key, value);
         node.next = head;
-        bucketList.set(bucketIndex, node);
+        bucket.set(index, node);
     }
 
     public V getValue(K key) {
-        int bucketIndex = getHasCode(key);
-        MapNode<K, V> head = bucketList.get(bucketIndex);
+        int index = getHashCode(key);
+        MapNode<K, V> head = bucket.get(index);
 
         while (head != null) {
             if (head.key.equals(key)) {
                 return head.value;
             }
-            head = head.next;
-        }
-        return null;
-    }
-
-    public V removeKey(K key) {
-        int bucketIndex = getHasCode(key);
-        MapNode<K, V> head = bucketList.get(bucketIndex);
-        MapNode<K, V> prev = null;
-
-        while (head != null) {
-            if (head.key.equals(key)) {
-                if (prev != null) {
-                    prev.next = head.next;
-                } else {
-                    bucketList.set(bucketIndex, head.next);
-                }
-                return head.value;
-            }
-            prev = head;
             head = head.next;
         }
         return null;
@@ -71,5 +49,26 @@ public class Map<K, V> {
 
     public int size() {
         return count;
+    }
+
+    public V removeKey(K key) {
+        int index = getHashCode(key);
+        MapNode<K, V> head = bucket.get(index);
+        MapNode<K, V> prev = null;
+
+        while (head != null) {
+            if (head.key.equals(key)) {
+                if (prev != null) {
+                    prev.next = head.next;
+                } else {
+                    V val = head.next.value;
+                    bucket.set(index, head.next);
+                    return val;
+                }
+            }
+            prev = head;
+            head = head.next;
+        }
+        return null;
     }
 }

@@ -7,7 +7,23 @@ public class Subsequence {
 //        subSequence("", "abc");
 //        System.out.println(subSequenceArrayList("", "abc"));
 //        subSequenceASCII("","abc");
-        System.out.println(subSequenceArrayListASCII("", "abc"));
+//        System.out.println(subSequenceArrayListASCII("", "abc"));
+
+        // dice
+        sumOfSequence(0, 4, "");
+    }
+
+    // sum of number of dices 1, 2, 3
+    static void sumOfSequence(int src, int des, String ans) {
+        if (src == des) {
+            System.out.println(ans + " ");
+            return;
+        }
+        if (src > des) return;
+
+        for (int dice = 1; dice <= 3; dice++) {
+            sumOfSequence(src + dice, des, ans + dice);
+        }
     }
 
     static void subSequence(String p, String up) {

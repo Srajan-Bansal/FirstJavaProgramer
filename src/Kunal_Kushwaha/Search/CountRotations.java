@@ -8,7 +8,7 @@ public class CountRotations {
 
     static int countRotations(int[] arr) {
         int pivot = findPivot(arr);
-//        int pivot - findPivotInDuplicates(arr);
+//        int pivot = findPivotInDuplicates(arr);
 
         return pivot + 1;
     }

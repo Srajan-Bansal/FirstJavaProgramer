@@ -3,9 +3,9 @@ package Kunal_Kushwaha.Recursion.Subset_and_Subsequence;
 import java.util.ArrayList;
 import java.util.List;
 
-public class subSet {
+public class SubSet {
     public static void main(String[] args) {
-        int[] arr = {0};
+        int[] arr = {1,2,3,4};
         System.out.println(subSet(arr));
     }
     static List<List<Integer>> subSet (int[] arr) {

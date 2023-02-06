@@ -3,7 +3,7 @@ package Kunal_Kushwaha.Search;
 public class RotatedSortedArray {
     public static void main(String[] args) {
         int[] arr = {4, 5, 6, 8, 9, 0, 1, 2, 3};
-        System.out.println(searchInRotatedSortedArray(arr, 0));
+        System.out.println(searchInRotatedSortedArray(arr, 4));
     }
 
     static int searchInRotatedSortedArray(int[] arr, int target) {
@@ -16,7 +16,7 @@ public class RotatedSortedArray {
         if (arr[pivot] == target) {
             return pivot;
         }
-        if (target >= arr[pivot]) {
+        if (target >= arr[0]) {
             return binarySearch(arr, target, 0, pivot - 1);
         }
         return binarySearch(arr, target, pivot + 1, arr.length - 1);
