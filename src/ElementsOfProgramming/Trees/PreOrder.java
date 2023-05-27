@@ -9,15 +9,15 @@ public class PreOrder implements TreeLeetcode {
 
     }
 
-    static List<Integer> iterativePreOrder(Node root) {
+    static List<Integer> iterativePreOrder(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         if (root == null) return list;
 
-        Stack<Node> stack = new Stack<>();
+        Stack<TreeNode> stack = new Stack<>();
         stack.add(root);
         while (!stack.isEmpty()) {
-            Node node = stack.pop();
-            list.add(node.val);
+            TreeNode Treenode = stack.pop();
+            list.add(Treenode.val);
 
             if (root.right != null) stack.push(root.right);
             if (root.left != null) stack.push(root.left);
@@ -25,7 +25,7 @@ public class PreOrder implements TreeLeetcode {
         return list;
     }
 
-    static List<Integer> preOrderList(Node root) {
+    static List<Integer> preOrderList(TreeNode root) {
         if (root == null) {
             return new ArrayList<>();
         }
@@ -37,7 +37,7 @@ public class PreOrder implements TreeLeetcode {
         return list;
     }
 
-    static void preOrder(Node root) {
+    static void preOrder(TreeNode root) {
         if (root == null) return;
 
         System.out.println(root.val);
