@@ -16,6 +16,5 @@ public interface LinkedListLeetcode {
             this.val = val;
             this.next = next;
         }
-
     }
 }
