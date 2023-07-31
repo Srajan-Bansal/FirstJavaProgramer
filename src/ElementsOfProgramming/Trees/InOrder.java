@@ -1,28 +1,36 @@
 package ElementsOfProgramming.Trees;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
-
-public class InOrder implements TreeLeetcode{
+import java.util.*;
+public class InOrder implements TreeLeetcode {
     public static void main(String[] args) {
 
     }
 
-    static List<Integer> iterativePreOrder(TreeNode root) {
+    static List<Integer> iterativeInOrder(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         if (root == null) return list;
 
         Stack<TreeNode> stack = new Stack<>();
-        stack.add(root);
-        while (!stack.isEmpty()) {
-            TreeNode node = stack.pop();
-            list.add(node.val);
+        TreeNode curr = root;
 
-            if (root.right != null) stack.push(root.right);
-            if (root.left != null) stack.push(root.left);
+        while (curr != null || !stack.isEmpty()) {
+            while (curr != null) {
+                stack.push(curr);
+                curr = curr.left;
+            }
+            curr = stack.pop();
+            list.add(curr.val);
+            curr = curr.right;
         }
         return list;
+    }
+
+    static void inOrder(TreeNode root) {
+        if (root == null) return;
+
+        inOrder(root.left);
+        System.out.print(root.val);
+        inOrder(root.right);
     }
 
 }

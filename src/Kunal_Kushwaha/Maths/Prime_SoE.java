@@ -35,6 +35,7 @@ public class Prime_SoE {
                 }
             }
         }
+//        for (int i = 0; i < arr.length; i++) System.out.print(i + " ");
         for (int i = 2; i <= n; i++) {
             if (!arr[i]) {
                 System.out.print(i + " ");

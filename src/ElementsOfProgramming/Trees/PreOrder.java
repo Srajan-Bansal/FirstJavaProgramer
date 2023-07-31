@@ -14,13 +14,14 @@ public class PreOrder implements TreeLeetcode {
         if (root == null) return list;
 
         Stack<TreeNode> stack = new Stack<>();
-        stack.add(root);
-        while (!stack.isEmpty()) {
-            TreeNode Treenode = stack.pop();
-            list.add(Treenode.val);
+        stack.push(root);
 
-            if (root.right != null) stack.push(root.right);
-            if (root.left != null) stack.push(root.left);
+        while (!stack.isEmpty()) {
+            TreeNode curr = stack.pop();
+            list.add(curr.val);
+
+            if (curr.right != null) stack.push(curr.right);
+            if (curr.left != null) stack.push(curr.left);
         }
         return list;
     }
