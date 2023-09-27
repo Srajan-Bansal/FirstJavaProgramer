@@ -8,7 +8,7 @@ public class BFS {
     }
 
     // for unconnected Graph
-    static void BFSDistinct(List<List<Integer>> list, int v) {
+    static void BFSDistinct(List<LinkedList<Integer>> list, int v) {
         boolean[] visited = new boolean[v];
         for (int i = 0; i < v; i++) {
             if (!visited[i]) {
@@ -17,7 +17,7 @@ public class BFS {
         }
     }
 
-    static void modifiedBFS(List<List<Integer>> list, int s, boolean[] visited) {
+    static void modifiedBFS(List<LinkedList<Integer>> list, int s, boolean[] visited) {
         Queue<Integer> queue = new LinkedList<>();
         queue.offer(s);
         visited[s] = true;
@@ -34,7 +34,7 @@ public class BFS {
         }
     }
 
-    static void bfs(List<List<Integer>> list, int vertices, int s) {
+    static void bfs(List<LinkedList<Integer>> list, int vertices, int s) {
         boolean[] visited = new boolean[vertices];
         Queue<Integer> queue = new LinkedList<>();
         queue.offer(s);

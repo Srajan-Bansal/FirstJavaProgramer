@@ -1,25 +1,25 @@
 package hackcodingblocks.LinkedList;
 
-public class CustomLinkedList {
+public class CustomLinkedList<T> {
     private Node head;
     private Node tail;
     private int size;
 
-    static class Node {
-        int data;
+    class Node {
+        T data;
         Node next;
 
-        public Node(int data) {
+        public Node(T data) {
             this.data = data;
         }
 
-        public Node(int data, Node next) {
+        public Node(T data, Node next) {
             this.data = data;
             this.next = next;
         }
     }
 
-    void insertFirst(int item) {
+    void insertFirst(T item) {
         Node node = new Node(item);
         node.next = head;
         head = node;
@@ -29,7 +29,7 @@ public class CustomLinkedList {
         size++;
     }
 
-    void insertLast(int item) {
+    void insertLast(T item) {
         if (head == null) {
             insertFirst(item);
             return;
@@ -39,7 +39,7 @@ public class CustomLinkedList {
         size++;
     }
 
-    void insert(int item, int pos) {
+    void insert(T item, int pos) {
         if (pos == 0) {
             insertFirst(item);
             return;
@@ -56,12 +56,12 @@ public class CustomLinkedList {
         size++;
     }
 
-    int deleteFirst() throws Exception {
+    T deleteFirst() throws Exception {
         if (head == null) {
             throw new Exception("LinkedList is Empty");
         }
         Node temp = head;
-        int removed = head.data;
+        T removed = head.data;
         head = head.next;
         temp.next = null;  // if we don't do it, then GARBAGE COLLECTOR will not collect it
         if (head == null) {
@@ -70,25 +70,25 @@ public class CustomLinkedList {
         return removed;
     }
 
-    int deleteLast() throws Exception {
+    T deleteLast() throws Exception {
         if (size == 0) throw new Exception("LinkedList is Empty");
         if (size == 1) return deleteFirst();
 
-        int removed = tail.data;
+        T removed = tail.data;
         tail = get(size - 2);
         tail.next = null;
         size--;
         return removed;
     }
 
-    int delete(int index) throws Exception {
+    T delete(int index) throws Exception {
         if (size == 0) throw new Exception();
         if (index == 0) deleteFirst();
         else if (index == size) deleteLast();
 
         Node prev = get(index - 1);
         Node curr = prev.next;
-        int curr_data = curr.data;
+        T curr_data = curr.data;
         prev.next = curr.next;
         curr.next = null;
         size--;
@@ -110,5 +110,12 @@ public class CustomLinkedList {
             node = node.next;
         }
         System.out.println("END");
+    }
+
+    public static void main(String[] args) {
+        CustomLinkedList<String> list = new CustomLinkedList<>();
+        list.insertFirst("vwdv");
+        list.insertFirst("wv");
+        list.display();
     }
 }

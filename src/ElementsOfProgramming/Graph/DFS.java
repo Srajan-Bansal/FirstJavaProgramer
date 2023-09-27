@@ -8,7 +8,7 @@ public class DFS {
     }
 
     // for unconnected Graph
-    static void dfs(List<List<Integer>> adj, int s, int v) {
+    static void dfs(List<LinkedList<Integer>> adj, int s, int v) {
         boolean[] visited = new boolean[v];
         for (int i = 0; i < v; i++) {
             if (!visited[i]) {
@@ -17,7 +17,7 @@ public class DFS {
         }
     }
 
-    static void dfsRec(List<List<Integer>> adj, int s, boolean[] visited) {
+    static void dfsRec(List<LinkedList<Integer>> adj, int s, boolean[] visited) {
         visited[s] = true;
         System.out.print(s + " ");
 

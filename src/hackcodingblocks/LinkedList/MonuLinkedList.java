@@ -2,7 +2,7 @@ package hackcodingblocks.LinkedList;
 
 import java.util.*;
 
-public class monuLinkedList {
+public class MonuLinkedList {
     static class Node {
         int val;
         Node next;
@@ -45,7 +45,7 @@ public class monuLinkedList {
 
         Node node1 = reverse(head1), node2 = reverse(head2);
 
-        monuLinkedList main = new monuLinkedList();
+        MonuLinkedList main = new MonuLinkedList();
         Node head = main.addLast(0);
         Node node = head;
         int carry = 0;
@@ -113,12 +113,12 @@ public class monuLinkedList {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt(), m = sc.nextInt();
 
-        monuLinkedList main1 = new monuLinkedList();
+        MonuLinkedList main1 = new MonuLinkedList();
         for (int i = 0; i < n; i++) {
             main1.addLast(sc.nextInt());
         }
 
-        monuLinkedList main2 = new monuLinkedList();
+        MonuLinkedList main2 = new MonuLinkedList();
         for (int i = 0; i < m; i++) {
             main2.addLast(sc.nextInt());
         }
