@@ -23,7 +23,7 @@ public interface TreeLeetcode {
         }
     }
 
-    public static void printTree(TreeNode root) {
+    static void printTree(TreeNode root) {
         LinkedList<TreeNode> treeLevel = new LinkedList<>(), temp = new LinkedList<>();
         treeLevel.add(root);
         int counter = 0, height = heightOfTree(root) - 1;
@@ -49,6 +49,7 @@ public interface TreeLeetcode {
             }
         }
     }
+
     public static void printSpace(double n, TreeNode removed) {
         for (; n > 0; n--) System.out.print("\t");
         if (removed == null) System.out.print(" ");

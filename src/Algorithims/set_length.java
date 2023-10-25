@@ -6,9 +6,9 @@ public class set_length {
     }
 
     public static String removeStars(String s) {
-        StringBuilder str = new StringBuilder("");
+        StringBuilder str = new StringBuilder();
         for (char ch : s.toCharArray()) {
-            if (ch == '*' && str.length() > 0) {
+            if (ch == '*' && !str.isEmpty()) {
                 str.setLength(str.length() - 1);
             } else str.append(ch);
         }
