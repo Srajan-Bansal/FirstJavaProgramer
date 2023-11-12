@@ -1,6 +1,6 @@
 package hackcodingblocks.DP;
 
-public class Knapsack {
+public class Knapsack_OI {
     public static void main(String[] args) {
         int[] wt = {1, 2, 3, 2, 2};
         int[] val = {8, 4, 8, 5, 3};

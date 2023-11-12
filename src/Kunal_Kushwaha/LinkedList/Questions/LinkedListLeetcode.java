@@ -16,5 +16,13 @@ public interface LinkedListLeetcode {
             this.val = val;
             this.next = next;
         }
+
+        public static void display(ListNode head) {
+            ListNode node = head;
+            while (node != null) {
+                System.out.print(node.val + " -> ");
+                node = node.next;
+            }
+        }
     }
 }

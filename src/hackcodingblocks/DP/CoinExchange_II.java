@@ -6,27 +6,24 @@ public class CoinExchange_II {
     public static void main(String[] args) {
         int[] coins = {1, 2, 5};
         int amount = 5;
-        int[][] dp = new int[amount + 1][coins.length];
-        for (int i = 0; i < dp.length; i++) {
-            for (int j = 0; j < dp[0].length; j++) {
-                dp[i][j] = -1;
-            }
-        }
-        System.out.println(coinExchange(coins, amount, 0, dp));
+        int[][] dp = new int[amount + 1][coins.length + 1];
+        for (int[] row : dp) Arrays.fill(row, -1);
+        System.out.println(coin(coins, 0, amount, dp));
     }
 
-    static int coinExchange(int[] coins, int amount, int i, int[][] dp) {
-        if (amount == 0) return 1;
-        if (i == coins.length) return 0;
+    static int coin(int[] arr, int i, int target, int[][] dp) {
+        if (target == 0) return 1;
+        if (i == arr.length) return 0;
 
-        if (dp[amount][i] != -1) return dp[amount][i];
+        if (dp[target][i] != -1) return dp[target][i];
 
-        int inc = 0, exc = 0;
-        if (amount >= coins[i]) {
-            inc = coinExchange(coins, amount - coins[i], i, dp);
+        int inc = 0;
+        if (target >= arr[i]) {
+            inc = coin(arr, i, target - arr[i], dp);
         }
-        exc = coinExchange(coins, amount - coins[i], i + 1, dp);
-        return dp[amount][i] = inc + exc;
+
+        int exc = coin(arr, i + 1, target, dp);
+        return dp[target][i] = inc + exc;
     }
 
     static int coinExchangeBU(int[] coins, int amount) {

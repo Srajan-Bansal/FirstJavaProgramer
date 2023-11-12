@@ -34,14 +34,14 @@ public class SortLinkedList implements LinkedListLeetcode{
     }
 
     public ListNode middleNode(ListNode head) {
-        ListNode fast = head;
-        ListNode slow = head;
-
+        ListNode slow = head, fast = head.next;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
-        return slow;
+        ListNode mid = slow.next;
+        slow.next = null;
+        return mid;
     }
 
     // Bubble Sort
