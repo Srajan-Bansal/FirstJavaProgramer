@@ -1,5 +1,6 @@
 package hackcodingblocks.DP;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class LCS_Print {

@@ -1,6 +1,6 @@
 package ElementsOfProgramming.Trees;
 
-import java.util.LinkedList;
+import java.util.*;
 
 public interface TreeLeetcode {
     class TreeNode {
@@ -59,6 +59,58 @@ public interface TreeLeetcode {
     public static int heightOfTree(TreeNode root) {
         if (root == null) return 0;
         return 1 + Math.max(heightOfTree(root.left), heightOfTree(root.right));
+    }
+
+    public static TreeNode arrayToTree(Integer[] array) {
+        if (array == null || array.length == 0) {
+            return null;
+        }
+
+        return arrayToTree(array, 0);
+    }
+
+    private static TreeNode arrayToTree(Integer[] array, int index) {
+        if (index >= array.length || array[index] == null) {
+            return null;
+        }
+
+        TreeNode root = new TreeNode(array[index]);
+
+        root.left = arrayToTree(array, 2 * index + 1);
+        root.right = arrayToTree(array, 2 * index + 2);
+
+        return root;
+    }
+
+    public static TreeNode levelOrderConstructTree(Integer[] levelOrder) {
+        if (levelOrder == null || levelOrder.length == 0) {
+            return null;
+        }
+
+        TreeNode root = new TreeNode(levelOrder[0]);
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        int i = 1;
+
+        while (!queue.isEmpty() && i < levelOrder.length) {
+            TreeNode current = queue.poll();
+
+            Integer leftVal = levelOrder[i++];
+            if (leftVal != null) {
+                current.left = new TreeNode(leftVal);
+                queue.add(current.left);
+            }
+
+            if (i < levelOrder.length) {
+                Integer rightVal = levelOrder[i++];
+                if (rightVal != null) {
+                    current.right = new TreeNode(rightVal);
+                    queue.add(current.right);
+                }
+            }
+        }
+
+        return root;
     }
 
 //    TreeNode root = new TreeNode(2);

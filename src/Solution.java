@@ -1,7 +1,10 @@
+import ElementsOfProgramming.Trees.LevelOrder;
 import Kunal_Kushwaha.LinkedList.Questions.LinkedListLeetcode;
 import ElementsOfProgramming.Trees.TreeLeetcode;
 
+import java.security.PublicKey;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Solution implements LinkedListLeetcode, TreeLeetcode {
 
@@ -23,7 +26,18 @@ public class Solution implements LinkedListLeetcode, TreeLeetcode {
 //        TreeLeetcode.printTree(root);
 
         Solution s = new Solution();
+//        Integer[] nums = {-10,9,20,null,null,15,7};
+//        TreeNode root = TreeLeetcode.levelOrderConstructTree(nums);
+//        TreeLeetcode.printTree(root);
+//        System.out.println(s.maxPathSum(root));
+    }
 
 
+    class DiaPair {
+        boolean isOne = false;
+
+        public DiaPair() {
+
+        }
     }
 }

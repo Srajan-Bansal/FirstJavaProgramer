@@ -32,4 +32,30 @@ public class Vertical_Traversal implements TreeLeetcode{
         verticalTraversal(root.left, level - 1, map);
         verticalTraversal(root.right, level + 1, map);
     }
+
+    public List<List<Integer>> verticalTraversal(TreeNode root) {
+        TreeMap<Integer, TreeMap<Integer, List<Integer>>> map = new TreeMap<>();
+        verticalTraversal(root, 0, 0, map);
+
+        List<List<Integer>> list = new ArrayList<>();
+        for (TreeMap<Integer, List<Integer>> i : map.values()) {
+            List<Integer> ptr = new ArrayList<>();
+            for (List<Integer> temp : i.values()) {
+                Collections.sort(temp);
+                for (int j = 0; j < temp.size(); j++) {
+                    ptr.add(temp.get(j));
+                }
+            }
+            list.add(ptr);
+        }
+        return list;
+    }
+
+    static void verticalTraversal(TreeNode root, int col, int level, TreeMap<Integer, TreeMap<Integer, List<Integer>>> map) {
+        if (root == null) return;
+
+        verticalTraversal(root.left, col - 1, level + 1, map);
+        map.computeIfAbsent(col, k -> new TreeMap<>()).computeIfAbsent(level, k -> new ArrayList<>()).add(root.val);
+        verticalTraversal(root.right, col + 1, level + 1, map);
+    }
 }

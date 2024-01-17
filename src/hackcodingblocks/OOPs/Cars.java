@@ -2,7 +2,7 @@ package hackcodingblocks.OOPs;
 
 import java.util.*;
 
-public class Cars { // implements Comparable<Cars>{
+public class Cars implements Comparable<Cars> {
     int price;
     int speed;
     String color;
@@ -42,6 +42,7 @@ public class Cars { // implements Comparable<Cars>{
 
     public static void main(String[] args) {
         Cars[] cars = new Cars[5];
+
         cars[0] = new Cars(143423, 762, "Black");
         cars[1] = new Cars(421, 5242, "White");
         cars[2] = new Cars(1432, 522, "Yellow");
@@ -56,8 +57,8 @@ public class Cars { // implements Comparable<Cars>{
         }
     }
 
-//    @Override
-//    public int compareTo(Cars o) {
-//        return this.price - o.price;
-//    }
+    @Override
+    public int compareTo(Cars o) {
+        return this.price - o.price;
+    }
 }

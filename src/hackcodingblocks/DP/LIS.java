@@ -39,4 +39,24 @@ public class LIS {
         }
         return val;
     }
+
+    // MEMO Leetcode
+    public int lengthOfLIS(int[] nums) {
+        int[][] dp = new int[nums.length + 1][nums.length + 1];
+        for (int[] row : dp) Arrays.fill(row, -1);
+        return findLength(nums, -1, 0, dp);
+    }
+
+    public int findLength(int[] nums, int last, int i, int[][] dp) {
+        if (i == nums.length) return 0;
+
+        if (dp[last + 1][i] != -1) return dp[last][i];
+
+        int take = 0;
+        if (last == -1 || nums[i] > nums[last]) {
+            take = 1 + findLength(nums, i, i + 1, dp);
+        }
+        int donot_take = findLength(nums, last, i + 1, dp);
+        return dp[last + 1][i] = Math.max(take, donot_take);
+    }
 }

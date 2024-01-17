@@ -1,12 +1,15 @@
 package Kunal_Kushwaha.Tree.Questions;
+
 import ElementsOfProgramming.Trees.TreeLeetcode;
 
-public class Maximum_Sum_BST implements TreeLeetcode{
+public class Maximum_Sum_BST implements TreeLeetcode {
     int maxSum = 0;
+
     public int maxSumBST(TreeNode root) {
         helper(root);
         return maxSum;
     }
+
     private Result helper(TreeNode node) {
         if (node == null) {
             return new Result(true, Integer.MAX_VALUE, Integer.MIN_VALUE, 0);
