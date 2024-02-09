@@ -12,6 +12,7 @@ public class SizeOfBT implements TreeLeetcode {
         root.left.right.left = new TreeNode(122);
 
 
+        TreeLeetcode.printTree(root);
         System.out.println(sizeOfBT(root));
     }
 

@@ -1,0 +1,11 @@
+// Liked, favorites in leetcode both ID
+
+// Time and space complexity questions
+1. 1291. Sequential Digits (Good)
+// We can sort a map using priority queue or make a list of keySet and then sort
+
+1. Try to use Pair if you want to save more than 1 data
+    Ex: In Tree, Or Daily Temperature (Stack)
+
+
+// KMP Imp

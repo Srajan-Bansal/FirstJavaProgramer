@@ -1,7 +1,6 @@
 package hackcodingblocks.HashMap;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class HashMap<K, V> {
     class Node {
