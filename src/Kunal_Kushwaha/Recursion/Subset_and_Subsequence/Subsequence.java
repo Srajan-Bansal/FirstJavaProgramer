@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Subsequence {
     public static void main(String[] args) {
-//        subSequence("", "abc");
+        subSequence("", "abc");
 //        System.out.println(subSequenceArrayList("", "abc"));
 //        subSequenceASCII("","abc");
 //        System.out.println(subSequenceArrayListASCII("", "abc"));

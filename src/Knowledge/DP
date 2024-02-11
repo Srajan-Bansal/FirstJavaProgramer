@@ -1,0 +1,8 @@
+// Liked, favorites in leetcode both ID
+
+// DP
+if (r == grid.length) return 0;
+OR
+if (r == grid.length - 1) return grid[r][c1] + grid[r][c2];
+
+both ways in recursion

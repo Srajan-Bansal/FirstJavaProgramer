@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Permutations {
     public static void main(String[] args) {
         String str = "abc";
-//        permutations("", str);
+        permutations("", str);
 
 //        ArrayList<String> ans = permutationsArrayList("", str);
 //        System.out.println(ans);
@@ -16,7 +16,7 @@ public class Permutations {
 
     static void permutations(String p, String up) {
         if (up.isEmpty()) {
-            System.out.print(p);
+            System.out.print(p + " ");
             return;
         }
         char ch = up.charAt(0);
