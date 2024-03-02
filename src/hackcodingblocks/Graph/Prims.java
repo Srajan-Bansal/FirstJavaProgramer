@@ -36,13 +36,7 @@ public class Prims {
     }
 
     public void Prims() {
-        PriorityQueue<PrimsPair> pq = new PriorityQueue<>(new Comparator<PrimsPair>() {
-            @Override
-            public int compare(PrimsPair o1, PrimsPair o2) {
-                // TODO Auto-generated method stub
-                return o1.cost - o2.cost;
-            }
-        });
+        PriorityQueue<PrimsPair> pq = new PriorityQueue<>((a, b) -> a.cost - b.cost);
         pq.add(new PrimsPair(3, 3, 0));
         HashSet<Integer> visited = new HashSet<>();
         while (!pq.isEmpty()) {

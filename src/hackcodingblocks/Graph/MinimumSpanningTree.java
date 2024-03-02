@@ -33,12 +33,7 @@ public class MinimumSpanningTree {
     }
 
     public void Prims() {
-        PriorityQueue<PrimsPair> pq = new PriorityQueue<>(new Comparator<PrimsPair>() {
-            @Override
-            public int compare(PrimsPair o1, PrimsPair o2) {
-                return o1.cost - o2.cost;
-            }
-        });
+        PriorityQueue<PrimsPair> pq = new PriorityQueue<>((a, b) -> a.cost - b.cost);
         int ans = 0;
         pq.add(new PrimsPair(1, 1, 0));
         HashSet<Integer> visited = new HashSet<>();

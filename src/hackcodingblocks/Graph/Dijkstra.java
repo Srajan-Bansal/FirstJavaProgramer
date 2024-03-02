@@ -39,12 +39,7 @@ public class Dijkstra {
     }
 
     public void DijkstraAlgo(int src) {
-        PriorityQueue<DijkstraPair> pq = new PriorityQueue<>(new Comparator<DijkstraPair>() {
-            @Override
-            public int compare(DijkstraPair o1, DijkstraPair o2) {
-                return o1.cost - o2.cost;
-            }
-        });
+        PriorityQueue<DijkstraPair> pq = new PriorityQueue<>((a, b) -> a.cost - b.cost);
 
         HashSet<Integer> visited = new HashSet<>();
         pq.add(new DijkstraPair(src, "" + src, 0));

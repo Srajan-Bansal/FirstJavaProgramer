@@ -1,4 +1,5 @@
 import ElementsOfProgramming.Trees.LevelOrder;
+import Knowledge.Trie;
 import Kunal_Kushwaha.LinkedList.Questions.LinkedListLeetcode;
 import ElementsOfProgramming.Trees.TreeLeetcode;
 import hackcodingblocks.Graph.GraphLeetcode;
@@ -12,6 +13,41 @@ public class Solution implements LinkedListLeetcode, TreeLeetcode, GraphLeetcode
         inOrder(root.left);
         System.out.print(root.val + " -> ");
         inOrder(root.right);
+    }
+
+    TrieNode root = new TrieNode();
+
+    public void insert(String word) {
+        TrieNode node = root;
+        for (char ch : word.toCharArray()) {
+            int index = ch - 'a';
+            if (node.children[index] == null) {
+                node.children[index] = new TrieNode();
+            }
+            node = node.children[index];
+        }
+        node.isWord = true;
+    }
+
+    public boolean search(String word) {
+        TrieNode node = root;
+        for (char ch : word.toCharArray()) {
+            int index = ch - 'a';
+            if (node.children[index] == null) {
+                return false;
+            }
+            node = node.children[index];
+        }
+        return node.isWord;
+    }
+    class TrieNode {
+        boolean isWord;
+        TrieNode[] children;
+
+        TrieNode() {
+            isWord = false;
+            children = new TrieNode[26];
+        }
     }
 
     public static void main(String[] args) {
@@ -30,25 +66,5 @@ public class Solution implements LinkedListLeetcode, TreeLeetcode, GraphLeetcode
 //        TreeLeetcode.printTree(root);
 //        System.out.println(s.isCousins(root, 4, 5));
 
-    }
-
-    public List<List<Integer>> levelOrder(TreeNode root) {
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-
-        List<List<Integer>> list = new ArrayList<>();
-            List<Integer> temp = new ArrayList<>();
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            for (int i = 0; i < size; i++) {
-                TreeNode node = queue.poll();
-                temp.add(node.val);
-
-                if (node.left != null) queue.offer(node.left);
-                if (node.right != null) queue.offer(node.right);
-            }
-            list.add(temp);
-        }
-        return list;
     }
 }
