@@ -26,3 +26,5 @@ out/
 hs_err_pid*
 
 !/src/Trail.java
+!/src/Solution.java
+!/src/Main.java

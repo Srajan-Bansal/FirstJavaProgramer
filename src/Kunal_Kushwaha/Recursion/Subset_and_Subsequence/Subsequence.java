@@ -10,7 +10,7 @@ public class Subsequence {
 //        System.out.println(subSequenceArrayListASCII("", "abc"));
 
         // dice
-        sumOfSequence(0, 4, "");
+//        sumOfSequence(0, 4, "");
     }
 
     // sum of number of dices 1, 2, 3
