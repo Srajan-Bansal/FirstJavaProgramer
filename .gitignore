@@ -25,6 +25,7 @@ out/
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-!/src/Trail.java
-!/src/Solution.java
-!/src/Main.java
+src/LinkedListSol.java
+src/Main.java
+src/Solution.java
+src/Trail.java
